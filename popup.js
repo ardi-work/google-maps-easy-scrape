@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        var currentTab = tabs[0];
-        var actionButton = document.getElementById('actionButton');
-        var downloadCsvButton = document.getElementById('downloadCsvButton');
-        var resultsTable = document.getElementById('resultsTable');
-        var filenameInput = document.getElementById('filenameInput');
+        const currentTab = tabs[0];
+        const actionButton = document.getElementById('actionButton');
+        const downloadCsvButton = document.getElementById('downloadCsvButton');
+        const resultsTable = document.getElementById('resultsTable');
+        const filenameInput = document.getElementById('filenameInput');
 
         if (currentTab && currentTab.url.includes("://www.google.com/maps/search")) {
             document.getElementById('message').textContent = "Let's scrape Google Maps!";
             actionButton.disabled = false;
             actionButton.classList.add('enabled');
         } else {
-            var messageElement = document.getElementById('message');
+            const messageElement = document.getElementById('message');
             messageElement.innerHTML = '';
-            var linkElement = document.createElement('a');
+            const linkElement = document.createElement('a');
             linkElement.href = 'https://www.google.com/maps/search/';
             linkElement.textContent = "Go to Google Maps Search.";
             linkElement.target = '_blank';
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
                     // Define and add headers to the table
-                    const headers = ['Title', 'Rating', 'Reviews', 'Phone', 'Google Maps Link'];
+                    const headers = ['Title', 'Rating', 'Reviews', 'Phone', 'Website', 'Google Maps Link'];
                     const headerRow = document.createElement('tr');
                     headers.forEach(headerText => {
                         const header = document.createElement('th');
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Add new results to the table
                     if (!results || !results[0] || !results[0].result) return;
                     results[0].result.forEach(function (item) {
-                        var row = document.createElement('tr');
-                        ['title', 'rating', 'reviewCount', 'phone', 'href'].forEach(function (key) {
-                            var cell = document.createElement('td');
+                        const row = document.createElement('tr');
+                        ['title', 'rating', 'reviewCount', 'phone', 'website', 'href'].forEach(function (key) {
+                            const cell = document.createElement('td');
                             cell.textContent = item[key] || '';
                             row.appendChild(cell);
                         });
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         downloadCsvButton.addEventListener('click', function () {
-            var csv = tableToCsv(resultsTable);
-            var filename = filenameInput.value.trim();
+            const csv = tableToCsv(resultsTable);
+            let filename = filenameInput.value.trim();
             if (!filename) {
                 filename = 'google-maps-data.csv';
             } else {
@@ -91,7 +91,9 @@ async function scrapeDataWithScroll() {
             const roleImgContainer = container?.querySelector('[role="img"]');
             let rating = '';
             let reviewCount = '';
+            let website = '';
 
+            // Extract rating and review count
             if (roleImgContainer) {
                 const ariaLabel = roleImgContainer.getAttribute('aria-label');
                 if (ariaLabel?.includes("stars")) {
@@ -101,6 +103,14 @@ async function scrapeDataWithScroll() {
                 }
             }
 
+            // Extract website URL
+            const allLinks = Array.from(container?.querySelectorAll('a[href]') || []);
+            const websiteLink = allLinks.find(link => !link.href.startsWith("https://www.google.com/maps/place/"));
+            if (websiteLink) {
+                website = websiteLink.href;
+            }
+
+            // Extract phone number
             const phoneRegex = /(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/;
             const phone = container?.textContent.match(phoneRegex)?.[0] || '';
 
@@ -109,6 +119,7 @@ async function scrapeDataWithScroll() {
                 rating,
                 reviewCount,
                 phone,
+                website,
                 href: link.href,
             };
         });
