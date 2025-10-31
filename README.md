@@ -1,88 +1,88 @@
 # Google Maps Easy Scrape
 
-A Chrome extension that makes it easy to scrape Google Maps search results and export them to CSV format.
+Ekstensi Chrome yang memudahkan untuk mengambil hasil pencarian Google Maps dan mengekspornya ke format CSV.
 
-## Project Overview
+## Ringkasan Proyek
 
-Google Maps Easy Scrape is a powerful Chrome extension designed to automatically collect business data from Google Maps search results. The extension automates the process of scrolling through search results and gathering information like business names, ratings, reviews, phone numbers, websites, and Google Maps links.
+Google Maps Easy Scrape adalah ekstensi Chrome yang kuat yang dirancang untuk mengumpulkan data bisnis dari hasil pencarian Google Maps secara otomatis. Ekstensi ini mengotomatiskan proses menggulir melalui hasil pencarian dan mengumpulkan informasi seperti nama bisnis, peringkat, ulasan, nomor telepon, situs web, dan tautan Google Maps.
 
-## Features
+## Fitur
 
-- **Auto-scrolling**: Automatically scrolls through Google Maps search results to collect all available data
-- **Data Collection**: Extracts comprehensive business information including:
-  - Business title/name
-  - Rating
-  - Number of reviews
-  - Phone number
-  - Website URL
-  - Direct Google Maps link
-- **CSV Export**: Export collected data to CSV format with one click
-- **Configurable Filename**: Customize the filename for your exported CSV files
-- **Real-time Display**: View collected data in a clean, organized table format
-- **Smart Detection**: Automatically detects when you're on a Google Maps search page
+- **Auto-scrolling**: Secara otomatis menggulir hasil pencarian Google Maps untuk mengumpulkan semua data yang tersedia
+- **Pengumpulan Data**: Mengekstrak informasi bisnis yang lengkap termasuk:
+  - Judul/nama bisnis
+  - Peringkat
+  - Jumlah ulasan
+  - Nomor telepon
+  - URL situs web
+  - Tautan Google Maps langsung
+- **Ekspor CSV**: Mengekspor data yang dikumpulkan ke format CSV dengan satu klik
+- **Nama File Dapat Dikonfigurasi**: Sesuaikan nama file untuk file CSV yang diekspor
+- **Tampilan Real-time**: Lihat data yang dikumpulkan dalam format tabel yang rapi dan terorganisir
+- **Deteksi Cerdas**: Secara otomatis mendeteksi ketika Anda berada di halaman pencarian Google Maps
 
-## Installation Instructions
+## Petunjuk Instalasi
 
-Follow these steps to install the Google Maps Easy Scrape extension in Chrome:
+Ikuti langkah-langkah berikut untuk menginstal ekstensi Google Maps Easy Scrape di Chrome:
 
-### Step 1: Download or Clone the Repository
-- **Option A**: Download the repository as a ZIP file and extract it to your desired location
-- **Option B**: Clone the repository using Git:
+### Langkah 1: Unduh atau Kloning Repository
+- **Opsi A**: Unduh repository sebagai file ZIP dan ekstrak ke lokasi yang Anda inginkan
+- **Opsi B**: Kloning repository menggunakan Git:
   ```bash
   git clone <repository-url>
   ```
 
-### Step 2: Open Chrome Extensions Page
-- Open Google Chrome
-- Navigate to `chrome://extensions/` in the address bar
-- Alternatively, go to Chrome menu (three dots) → More tools → Extensions
+### Langkah 2: Buka Halaman Ekstensi Chrome
+- Buka Google Chrome
+- Navigasi ke `chrome://extensions/` di bilah alamat
+- Alternatifnya, buka menu Chrome (tiga titik) → More tools → Extensions
 
-### Step 3: Enable Developer Mode
-- In the top right corner of the Extensions page, toggle on **"Developer mode"**
-- This will reveal additional options for developers
+### Langkah 3: Aktifkan Mode Pengembang
+- Di pojok kanan atas halaman Ekstensi, aktifkan **"Developer mode"**
+- Ini akan menampilkan opsi tambahan untuk pengembang
 
-### Step 4: Load the Extension
-- Click the **"Load unpacked"** button that appears in the top left
-- A file selection dialog will open
-- Navigate to and select the extension directory (the folder containing manifest.json)
-- Click "Select Folder"
+### Langkah 4: Muat Ekstensi
+- Klik tombol **"Load unpacked"** yang muncul di pojok kiri atas
+- Dialog pemilihan file akan terbuka
+- Navigasi ke dan pilih direktori ekstensi (folder yang berisi manifest.json)
+- Klik "Select Folder"
 
-### Step 5: Verify Installation
-- The Google Maps Easy Scrape extension should now appear in your extensions list
-- The extension icon (🗺️) should appear in your Chrome toolbar
-- If you don't see the icon, click the puzzle piece icon in the toolbar and pin the extension
+### Langkah 5: Verifikasi Instalasi
+- Ekstensi Google Maps Easy Scrape sekarang harus muncul dalam daftar ekstensi Anda
+- Ikon ekstensi (🗺️) harus muncul di toolbar Chrome Anda
+- Jika Anda tidak melihat ikonnya, klik ikon puzzle di toolbar dan sematkan ekstensi tersebut
 
-## How to Use
+## Cara Menggunakan
 
-1. **Navigate to Google Maps**: Go to [Google Maps](https://www.google.com/maps/) and perform a search for businesses or places
-2. **Open the Extension**: Click the Google Maps Easy Scrape icon in your Chrome toolbar
-3. **Start Scraping**: Click the "Scrape Google Maps" button
-4. **Wait for Collection**: The extension will automatically scroll through the results and collect data
-5. **Review Results**: View the collected data in the table that appears
-6. **Export Data**: 
-   - Enter a custom filename (optional) in the input field
-   - Click "Download as CSV" to save the data to your computer
+1. **Navigasi ke Google Maps**: Buka [Google Maps](https://www.google.com/maps/) dan lakukan pencarian untuk bisnis atau tempat
+2. **Buka Ekstensi**: Klik ikon Google Maps Easy Scrape di toolbar Chrome Anda
+3. **Mulai Scraping**: Klik tombol "Scrape Google Maps"
+4. **Tunggu Pengumpulan**: Ekstensi akan secara otomatis menggulir melalui hasil dan mengumpulkan data
+5. **Tinjau Hasil**: Lihat data yang dikumpulkan dalam tabel yang muncul
+6. **Ekspor Data**: 
+   - Masukkan nama file kustom (opsional) di bidang input
+   - Klik "Download as CSV" untuk menyimpan data ke komputer Anda
 
-## Technical Details
+## Detail Teknis
 
-This extension is built using modern web technologies:
+Ekstensi ini dibangun menggunakan teknologi web modern:
 
-- **Manifest V3**: The latest Chrome extension manifest version for improved security and performance
-- **HTML**: Semantic markup for the popup interface
-- **Inline CSS**: Embedded styling for a clean, responsive user interface
-- **Vanilla JavaScript**: Pure JavaScript without external dependencies for fast performance
-- **Chrome Extensions API**: Uses the `chrome.scripting` and `chrome.tabs` APIs for content injection and tab management
+- **Manifest V3**: Versi manifes ekstensi Chrome terbaru untuk keamanan dan performa yang lebih baik
+- **HTML**: Markup semantik untuk antarmuka popup
+- **Inline CSS**: Gaya tertanam untuk antarmuka pengguna yang bersih dan responsif
+- **Vanilla JavaScript**: JavaScript murni tanpa dependensi eksternal untuk performa cepat
+- **Chrome Extensions API**: Menggunakan API `chrome.scripting` dan `chrome.tabs` untuk injeksi konten dan manajemen tab
 
-## Export Feature
+## Fitur Ekspor
 
-The CSV export functionality allows you to:
+Fungsi ekspor CSV memungkinkan Anda untuk:
 
-- **Custom Filenames**: Enter your desired filename before downloading (defaults to a timestamp if no name is provided)
-- **Complete Data**: Export all collected business information in a structured CSV format
-- **Immediate Download**: Files are downloaded directly to your default downloads folder
-- **Spreadsheet Compatible**: The exported CSV files can be opened in Excel, Google Sheets, or any spreadsheet application
+- **Nama File Kustom**: Masukkan nama file yang diinginkan sebelum mengunduh (default ke timestamp jika tidak ada nama yang diberikan)
+- **Data Lengkap**: Ekspor semua informasi bisnis yang dikumpulkan dalam format CSV yang terstruktur
+- **Unduh Langsung**: File diunduh langsung ke folder unduhan default Anda
+- **Kompatibel Spreadsheet**: File CSV yang diekspor dapat dibuka di Excel, Google Sheets, atau aplikasi spreadsheet apa pun
 
-The CSV export includes all the following columns:
+Ekspor CSV mencakup semua kolom berikut:
 - Title
 - Rating
 - Reviews
@@ -90,17 +90,17 @@ The CSV export includes all the following columns:
 - Website
 - Google Maps Link
 
-## Requirements
+## Persyaratan
 
-- Google Chrome browser (version 88 or higher for Manifest V3 support)
-- Access to Google Maps search results
+- Browser Google Chrome (versi 88 atau lebih tinggi untuk dukungan Manifest V3)
+- Akses ke hasil pencarian Google Maps
 
-## Troubleshooting
+## Pemecahan Masalah
 
-- **Extension not working**: Ensure you're on a Google Maps search page (URL should contain `google.com/maps/search`)
-- **No data collected**: Make sure there are search results visible on the page before starting
-- **Download not working**: Check that your browser allows downloads and that no popup blockers are interfering
+- **Ekstensi tidak berfungsi**: Pastikan Anda berada di halaman pencarian Google Maps (URL harus mengandung `google.com/maps/search`)
+- **Tidak ada data yang dikumpulkan**: Pastikan ada hasil pencarian yang terlihat di halaman sebelum memulai
+- **Unduh tidak berfungsi**: Periksa apakah browser Anda mengizinkan unduhan dan tidak ada popup blocker yang mengganggu
 
 ---
 
-Created by [Mike Powers](https://www.youtube.com/@itsmikepowers) | [Support the developer](https://www.buymeacoffee.com/itsmikepowers)
+Dibuat oleh [Mike Powers](https://www.youtube.com/@itsmikepowers) | [Dukung pengembang](https://www.buymeacoffee.com/itsmikepowers)
